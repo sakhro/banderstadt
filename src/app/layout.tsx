@@ -1,5 +1,7 @@
 import { Montserrat } from "next/font/google";
 
+import { Header } from "$/components/Header";
+
 const inter = Montserrat({ subsets: ["latin", "cyrillic"] });
 
 export const metadata = {
@@ -14,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-black text-white`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
