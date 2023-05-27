@@ -4,6 +4,8 @@ import { Header } from "$/components/Header";
 
 const inter = Montserrat({ subsets: ["latin", "cyrillic"] });
 
+import "./global.css";
+
 export const metadata = {
   title: "BANDERSTADT",
   description: "Glory for Ukraine!",
