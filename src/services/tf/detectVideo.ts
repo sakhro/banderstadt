@@ -5,6 +5,7 @@ import { NetType } from "$/services/tf/initTF";
 import { hexToRgba } from "$/helpers/hexToRgba";
 
 const THRESHOLD = 0.5;
+const BOX_COLOR = "#FF3838";
 
 interface IModel {
   net: NetType | null;
@@ -48,7 +49,7 @@ export const renderBoxes = (
   canvasRef: HTMLCanvasElement,
   boxes_data: Float32Array | Int32Array | Uint8Array,
   scores_data: Float32Array | Int32Array | Uint8Array,
-  ratios: number[]
+  [modelWidth, modelHeight]: [number, number]
 ) => {
   const ctx = canvasRef.getContext("2d");
 
@@ -58,20 +59,18 @@ export const renderBoxes = (
 
   for (let i = 0; i < scores_data.length; ++i) {
     if (scores_data[i] > THRESHOLD) {
-      const color = "#FF3838";
-
       let [x1, y1, x2, y2] = boxes_data.slice(i * 4, (i + 1) * 4);
-      x1 *= canvasRef.width * ratios[0];
-      x2 *= canvasRef.width * ratios[0];
-      y1 *= canvasRef.height * ratios[1];
-      y2 *= canvasRef.height * ratios[1];
+      x1 *= canvasRef.width * modelWidth;
+      x2 *= canvasRef.width * modelWidth;
+      y1 *= canvasRef.height * modelHeight;
+      y2 *= canvasRef.height * modelHeight;
       const width = x2 - x1;
       const height = y2 - y1;
 
-      ctx.fillStyle = hexToRgba(color, 0.2);
+      ctx.fillStyle = hexToRgba(BOX_COLOR, 0.2);
       ctx.fillRect(x1, y1, width, height);
 
-      ctx.strokeStyle = color;
+      ctx.strokeStyle = BOX_COLOR;
       ctx.lineWidth = Math.max(
         Math.min(ctx.canvas.width, ctx.canvas.height) / 200,
         2.5

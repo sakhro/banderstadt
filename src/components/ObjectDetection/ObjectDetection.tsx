@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { Video } from "$/components/Video";
 import { useTFModel } from "$/hooks/useTFModel";
 import { detectVideo } from "$/services/tf/detectVideo";
+import { Skeleton } from "$/components/Video/Skeleton";
 
 interface IProps {
   url: string;
@@ -20,13 +21,14 @@ export const ObjectDetection: React.FC<IProps> = (props) => {
 
   return (
     <div className="relative">
+      {!model.net && <Skeleton />}
       {model.net && (
         <>
           <Video
             ref={videoRef}
             src={props.url}
-            className="w-full max-h-[600px]"
             onPlay={handleDetect}
+            className="w-full max-h-[600px]"
           />
           <canvas
             ref={canvasRef}
