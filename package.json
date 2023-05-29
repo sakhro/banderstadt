@@ -4,6 +4,9 @@
   "repository": "https://github.com/sakhro/banderstadt.git",
   "author": "Sava-Danylo Sakhro <sd.sakhro@gmail.com>",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

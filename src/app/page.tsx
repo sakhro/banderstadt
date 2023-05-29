@@ -1,5 +1,4 @@
 import { Video } from "$/components/Video";
-import { Skeleton } from "$/components/Video/Skeleton";
 import { VideoLinkWrapper } from "$/components/VideoLinkWrapper";
 import { DEMO_VIDEO_PATH } from "$/constants/common";
 import { NAV } from "$/constants/navigation";
