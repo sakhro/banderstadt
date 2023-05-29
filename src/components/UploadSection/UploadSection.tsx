@@ -1,8 +1,8 @@
 "use client";
 import { useDropzone } from "react-dropzone";
 import { ReactSVG } from "react-svg";
-import compose from "ramda/src/compose";
-import path from "ramda/src/path";
+import compose from "ramda/es/compose";
+import path from "ramda/es/path";
 import clsx from "clsx";
 
 import { useFileContext } from "$/contexts/FileContext/FileContext";

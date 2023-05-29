@@ -1,5 +1,5 @@
 import * as tf from "@tensorflow/tfjs";
-import is from "ramda/src/is";
+import is from "ramda/es/is";
 
 import { NetType } from "$/services/tf/initTF";
 import { hexToRgba } from "$/helpers/hexToRgba";
