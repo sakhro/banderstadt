@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang="uk">
       <body className={`${inter.className} bg-black text-white`}>
         <Header />
-        {children}
+        <main className="px-4 py-8 sm:max-md:py-4 flex justify-center">
+          {children}
+        </main>
       </body>
     </html>
   );

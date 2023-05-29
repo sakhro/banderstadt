@@ -1,15 +1,14 @@
-import { VideoDemo } from "$/components/VideoDemo";
+import { Video } from "$/components/Video";
 import { VideoLinkWrapper } from "$/components/VideoLinkWrapper";
+import { DEMO_VIDEO_PATH } from "$/constants/common";
 import { NAV } from "$/constants/navigation";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="px-4 py-8 sm:max-md:py-4 flex justify-center">
-      <section className="max-w-5xl">
-        <VideoLinkWrapper href={NAV.PDRS_DETECT} title="Pdrs Detect">
-          <VideoDemo />
-        </VideoLinkWrapper>
-      </section>
-    </main>
+    <section className="max-w-5xl">
+      <VideoLinkWrapper href={NAV.PDRS_DETECT} title="Pdrs Detect">
+        <Video src={DEMO_VIDEO_PATH} />
+      </VideoLinkWrapper>
+    </section>
   );
 }
