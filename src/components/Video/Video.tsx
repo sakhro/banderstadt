@@ -17,6 +17,7 @@ export const Video: React.FC<IProps> = forwardRef<HTMLVideoElement, IProps>(
     <video
       loop
       muted
+      playsInline
       autoPlay
       ref={ref}
       width="100%"
