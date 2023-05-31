@@ -11,7 +11,7 @@ export const Nav = () => (
   <nav>
     <ul className="grid gap-6 grid-flow-col">
       <li>
-        <Link href={NAV.PDRS_DETECT}>Pdrs Detect</Link>
+        <Link href={NAV.PDRS_DETECT}>Пдрс Детект</Link>
       </li>
       <li>
         <Link target="_blank" href={packageJSON.repository}>

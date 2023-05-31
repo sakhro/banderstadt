@@ -30,8 +30,8 @@ export const UploadSection: React.FC<IProps> = (props) => {
     >
       <ReactSVG src="/static/icons/upload.svg" className={styles.icon} />
       <input {...getInputProps()} />
-      <p className="text-white text-center px-4 pb-4">
-        Drag {"'n'"} drop some files here, or click to select files
+      <p className="text-center px-4 pb-4">
+        Перетягніть файли сюди або натисніть, щоб вибрати файли
       </p>
     </div>
   );

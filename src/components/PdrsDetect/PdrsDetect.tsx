@@ -9,7 +9,7 @@ export const PdrsDetect = () => {
   const { file } = useFileContext();
 
   return (
-    <section className="max-w-5xl flex-col flex gap-8 w-full items-center">
+    <div className="flex-col flex gap-8 w-full items-center">
       {!!file && (
         <div className="flex-auto">
           <ObjectDetection url={URL.createObjectURL(file)} />
@@ -28,6 +28,6 @@ export const PdrsDetect = () => {
           <UploadSection className="bg-white/10 hover:bg-white/5 rounded-3xl p-4" />
         </div>
       )}
-    </section>
+    </div>
   );
 };
