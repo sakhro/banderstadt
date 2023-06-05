@@ -11,7 +11,7 @@ export const PdrsDetect = () => {
   return (
     <div className="flex-col flex gap-8 w-full items-center">
       {!!file && (
-        <div className="flex-auto">
+        <div className="flex-auto w-full">
           <ObjectDetection url={URL.createObjectURL(file)} />
         </div>
       )}
@@ -24,7 +24,7 @@ export const PdrsDetect = () => {
         </div>
       )}
       {!!file && (
-        <div className="flex-auto">
+        <div className="flex-auto w-full">
           <UploadSection className="bg-white/10 hover:bg-white/5 rounded-3xl p-4" />
         </div>
       )}
