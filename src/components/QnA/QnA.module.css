@@ -1,0 +1,8 @@
+.icon path {
+  stroke: rgb(255 255 255 / 0.8);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
