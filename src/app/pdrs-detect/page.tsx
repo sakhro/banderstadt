@@ -37,7 +37,7 @@ export default function PdrsDetectPage() {
         <QnA
           question="Де дістати дану модель?"
           answers={[
-            "Джерело коду є на github. Там є дана модель для роботи з TensorFlow. Якщо потрібні ваги для PyTorch, то напишіть мені на пошту sd.sakhro@gmail.com.",
+            "Джерело коду є на github(посилання я хедері). Там є дана модель для роботи з TensorFlow. Якщо потрібні ваги для PyTorch, то напишіть мені на пошту sd.sakhro@gmail.com.",
           ]}
         />
       </section>
