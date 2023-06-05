@@ -9,7 +9,7 @@ export default function HomePage() {
       <VideoLinkWrapper
         href={NAV.PDRS_DETECT}
         title="Пдрс Детект"
-        subtitle="Завантажте відео з дрону і програма покаже де є окупант"
+        subtitle="Завантажте відео з дрону і програма визначить місцезнаходження окупанта(-ів)"
       >
         <Video src={DEMO_VIDEO_PATH} />
       </VideoLinkWrapper>
