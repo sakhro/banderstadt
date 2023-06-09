@@ -2,19 +2,30 @@ import { Link } from "$/components/Link";
 import { Logo } from "$/components/Logo";
 import { Nav } from "$/components/Nav";
 import { NAV } from "$/constants/navigation";
+import { useMediaQuery } from "$/hooks/useMediaQuery";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 export const Header = () => {
+  const { isUpSm } = useMediaQuery();
+
   return (
-    <header className="flex px-4 py-2 items-center">
-      <div className="flex items-center flex-1">
-        <Link href={NAV.HOME} className="mr-4">
-          <Logo />
-        </Link>
-        <h1 className="flex-1">BANDERSTADT</h1>
-      </div>
-      <div className="flex-none">
-        <Nav />
-      </div>
-    </header>
+    <AppBar color="default">
+      <Toolbar variant="dense">
+        <Grid container spacing={2} alignItems="center" wrap="nowrap">
+          <Grid item xs>
+            <Link href={NAV.HOME} display="inline-flex" alignItems="center">
+              <Logo />
+              {isUpSm && <Box ml={1}>BANDERSTADT</Box>}
+            </Link>
+          </Grid>
+          <Grid item>
+            <Nav />
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
   );
 };

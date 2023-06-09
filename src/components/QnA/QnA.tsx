@@ -1,9 +1,10 @@
-"use client";
 import { useState } from "react";
 import not from "ramda/src/not";
-import { ReactSVG } from "react-svg";
-
-import styles from "./QnA.module.css";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface IProps {
   question?: string;
@@ -17,32 +18,18 @@ export const QnA: React.FC<IProps> = (props) => {
   const toggleState = () => setIsOpen(not);
 
   return (
-    <section className="my-10 overflow-hidden">
-      {props.question && (
-        <div className="flex cursor-pointer items-center" onClick={toggleState}>
-          <h2 className="flex-1 text-xl mb-2 font-bold">{props.question}</h2>
-          <ReactSVG
-            src="/static/icons/chevron-down.svg"
-            className={`flex-none transition-transform ${styles.icon} ${
-              isOpen ? "" : "-rotate-90"
-            }`}
-          />
-        </div>
-      )}
-      {!!props.answers.length && (
-        <div
-          className={`transition-[max-height] max-h-0 ${
-            isOpen ? "max-h-screen" : ""
-          }`}
-        >
-          {props.answers.map((paragraph, idx) => (
-            <p key={idx} className="mb-4">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      )}
-    </section>
+    <Accordion expanded={isOpen} onChange={toggleState}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="subtitle1">{props.question}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        {props.answers.map((paragraph, idx) => (
+          <Typography gutterBottom key={idx} variant="body2">
+            {paragraph}
+          </Typography>
+        ))}
+      </AccordionDetails>
+    </Accordion>
   );
 };
 

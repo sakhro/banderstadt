@@ -1,0 +1,1 @@
+export { PdrsDetectPage } from "./PdrsDetectPage";

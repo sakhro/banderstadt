@@ -1,5 +1,6 @@
+import Typography from "@mui/material/Typography";
 import packageJson from "../../../package.json";
 
 export const Version = () => (
-  <p className="text-sm text-center text-white/50">v{packageJson.version}</p>
+  <Typography variant="caption">v{packageJson.version}</Typography>
 );

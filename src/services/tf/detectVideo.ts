@@ -72,8 +72,8 @@ export const renderBoxes = (
 
       ctx.strokeStyle = BOX_COLOR;
       ctx.lineWidth = Math.max(
-        Math.min(ctx.canvas.width, ctx.canvas.height) / 200,
-        2.5
+        Math.min(ctx.canvas.width, ctx.canvas.height) / 300,
+        1
       );
       ctx.strokeRect(x1, y1, width, height);
     }

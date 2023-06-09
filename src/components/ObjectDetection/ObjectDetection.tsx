@@ -1,11 +1,10 @@
-"use client";
-
 import { useRef } from "react";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 
 import { Video } from "$/components/Video";
 import { useTFModel } from "$/hooks/useTFModel";
 import { detectVideo } from "$/services/tf/detectVideo";
-import { Skeleton } from "$/components/Video/Skeleton";
 
 interface IProps {
   url: string;
@@ -20,24 +19,27 @@ export const ObjectDetection: React.FC<IProps> = (props) => {
     detectVideo(model, videoRef.current, canvasRef.current);
 
   return (
-    <div className="relative">
-      {!model.net && <Skeleton />}
+    <>
+      {!model.net && <Skeleton variant="rounded" height={360} width="100%" />}
       {model.net && (
-        <>
+        <Box position="relative" width="fit-content">
           <Video
             ref={videoRef}
             src={props.url}
             onPlay={handleDetect}
-            className="w-full max-h-[600px]"
+            sx={{ maxHeight: 600, width: "100%" }}
           />
-          <canvas
+          <Box
+            top={0}
+            left={0}
             ref={canvasRef}
-            width={model.inputShape[1]}
-            height={model.inputShape[2]}
-            className="absolute top-0 left-0 w-full h-full"
+            component="canvas"
+            position="absolute"
+            width="100%"
+            height="100%"
           />
-        </>
+        </Box>
       )}
-    </div>
+    </>
   );
 };

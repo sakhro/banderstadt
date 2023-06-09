@@ -1,23 +1,30 @@
-"use client";
 import { Link } from "$/components/Link";
-import { ReactSVG } from "react-svg";
+import { SVG } from "$/components/SVG";
 import { NAV } from "$/constants/navigation";
+import Stack from "@mui/material/Stack";
+import { unstyledListStyles } from "$/constants/styles";
 
 import packageJSON from "../../../package.json";
 
-import styles from "./Nav.module.css";
-
 export const Nav = () => (
   <nav>
-    <ul className="grid gap-6 grid-flow-col">
+    <Stack
+      direction="row"
+      sx={unstyledListStyles}
+      spacing={2}
+      alignItems="center"
+    >
       <li>
         <Link href={NAV.PDRS_DETECT}>Пдрс Детект</Link>
       </li>
       <li>
-        <Link target="_blank" href={packageJSON.repository}>
-          <ReactSVG src="/static/icons/github.svg" className={styles.icon} />
+        <Link href={NAV.NFTS}>NFTs</Link>
+      </li>
+      <li>
+        <Link noLinkStyle target="_blank" href={packageJSON.repository}>
+          <SVG src="/static/icons/github.svg" />
         </Link>
       </li>
-    </ul>
+    </Stack>
   </nav>
 );

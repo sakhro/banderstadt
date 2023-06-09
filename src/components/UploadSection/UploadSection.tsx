@@ -1,19 +1,14 @@
-"use client";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import { useDropzone } from "react-dropzone";
-import { ReactSVG } from "react-svg";
 import compose from "ramda/es/compose";
 import path from "ramda/es/path";
-import clsx from "clsx";
 
 import { useFileContext } from "$/contexts/FileContext/FileContext";
+import { SVG } from "$/components/SVG";
 
-import styles from "./UploadSection.module.css";
-
-interface IProps {
-  className?: string;
-}
-
-export const UploadSection: React.FC<IProps> = (props) => {
+export const UploadSection: React.FC = (props) => {
   const { setFile } = useFileContext();
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: compose(setFile, path([0])),
@@ -21,18 +16,17 @@ export const UploadSection: React.FC<IProps> = (props) => {
   });
 
   return (
-    <div
-      className={clsx(
-        "w-full h-full flex gap-2 flex-col justify-center items-center cursor-pointer",
-        props.className
-      )}
-      {...getRootProps()}
+    <Stack
+      spacing={1}
+      cursor="pointer"
+      alignItems="center"
+      {...(getRootProps() as any)}
     >
-      <ReactSVG src="/static/icons/upload.svg" className={styles.icon} />
+      <SVG src="/static/icons/upload.svg" color="white" size={70} />
       <input {...getInputProps()} />
-      <p className="text-center px-4 pb-4">
+      <Typography align="center">
         Перетягніть файли сюди або натисніть, щоб обрати файли
-      </p>
-    </div>
+      </Typography>
+    </Stack>
   );
 };

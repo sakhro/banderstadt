@@ -1,4 +1,3 @@
-"use client";
 import { useMemo, useState } from "react";
 import { createContext } from "$/helpers/createContext";
 
