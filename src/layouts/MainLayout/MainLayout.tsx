@@ -15,6 +15,7 @@ import { Header } from "$/components/Header";
 import { Version } from "$/components/Version";
 import { ProgressBar } from "$/components/ProgressBar";
 import { ModalProvider } from "$/components/Modal/context";
+import { Head } from "$/components/Head";
 
 interface IProps {
   emotionCache: EmotionCache;
@@ -22,6 +23,7 @@ interface IProps {
 
 export const MainLayout: ReactFCWithChildrenProp<IProps> = (props) => (
   <StyledEngineProvider injectFirst>
+    <Head />
     <CacheProvider value={props.emotionCache}>
       <MUIThemeProvider theme={MUITheme}>
         <CssBaseline />

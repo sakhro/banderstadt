@@ -9,7 +9,7 @@ interface IModalContext {
 
 const [ModalContext, useModalContext] = createContext<IModalContext>();
 
-export const ModalProvider: React.FC = (props) => {
+export const ModalProvider: ReactFCWithChildrenProp = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const value = React.useMemo(

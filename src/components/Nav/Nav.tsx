@@ -1,5 +1,5 @@
 import { Link } from "$/components/Link";
-import { SVG } from "$/components/SVG";
+import InlineSVG from "react-inlinesvg";
 import { NAV } from "$/constants/navigation";
 import Stack from "@mui/material/Stack";
 import { unstyledListStyles } from "$/constants/styles";
@@ -21,8 +21,8 @@ export const Nav = () => (
         <Link href={NAV.NFTS}>NFTs</Link>
       </li>
       <li>
-        <Link noLinkStyle target="_blank" href={packageJSON.repository}>
-          <SVG src="/static/icons/github.svg" />
+        <Link target="_blank" href={packageJSON.repository}>
+          <InlineSVG src="/static/icons/github.svg" />
         </Link>
       </li>
     </Stack>
