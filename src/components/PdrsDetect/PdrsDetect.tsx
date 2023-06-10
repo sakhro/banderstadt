@@ -1,5 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+
 import { UploadSection } from "$/components/UploadSection";
 import { Video } from "$/components/Video";
 import { DEMO_VIDEO_PATH } from "$/constants/common";
@@ -33,7 +35,13 @@ export const PdrsDetect = () => {
           </Box>
         </Box>
       )}
-      {!!file && <UploadSection />}
+      {!!file && (
+        <div>
+          <Paper sx={{ mb: 4, p: 4 }}>
+            <UploadSection />
+          </Paper>
+        </div>
+      )}
     </Stack>
   );
 };

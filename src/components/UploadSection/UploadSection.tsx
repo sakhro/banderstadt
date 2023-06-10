@@ -7,6 +7,7 @@ import path from "ramda/es/path";
 
 import { useFileContext } from "$/contexts/FileContext/FileContext";
 import { SVG } from "$/components/SVG";
+import Paper from "@mui/material/Paper";
 
 export const UploadSection: React.FC = (props) => {
   const { setFile } = useFileContext();
